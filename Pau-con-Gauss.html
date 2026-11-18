@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pau con Gauss | Cursillo de Matemáticas para Selectividad</title>
+    <meta name="description" content="Prepara tu Selectividad de matemáticas con Pau con Gauss. Clases virtuales los fines de semana, resolución de dudas diaria, simulacros y material exclusivo.">
+    
+    <!-- Fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Variables de color basadas en tu PDF */
+        :root {
+            --rojo-oscuro: #6b0e0e;
+            --rojo-brillante: #9e1616;
+            --dorado: #f1c40f;
+            --fondo-claro: #f9f9f9;
+            --texto-oscuro: #333333;
+            --texto-gris: #666666;
+        }
+
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--fondo-claro);
+            color: var(--texto-oscuro);
+            line-height: 1.6;
+        }
+
+        /* Títulos con Playfair Display */
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--rojo-oscuro);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--rojo-brillante);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Cabecera */
+        header {
+            background: linear-gradient(135deg, var(--rojo-oscuro) 0%, #2a0404 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            border-bottom: 4px solid var(--dorado);
+        }
+
+        header h1 {
+            color: var(--dorado);
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 750px;
+            margin: 0 auto 30px auto;
+            color: #f0f0f0;
+        }
+
+        .btn-principal {
+            display: inline-block;
+            background-color: var(--dorado);
+            color: var(--rojo-oscuro);
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(241, 196, 15, 0.4);
+        }
+
+        .btn-principal:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(241, 196, 15, 0.6);
+        }
+
+        /* Secciones */
+        section {
+            padding: 70px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+        }
+
+        /* Curso de matemáticas intensivo */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--rojo-brillante);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card p {
+            color: var(--texto-gris);
+            margin-top: 10px;
+        }
+
+        /* Cómo funciona y Horarios */
+        .bg-blanco {
+            background-color: white;
+        }
+
+        .metodologia-lista {
+            list-style: none;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .metodologia-lista li {
+            background: var(--fondo-claro);
+            margin-bottom: 15px;
+            padding: 20px;
+            border-left: 5px solid var(--dorado);
+            border-radius: 0 8px 8px 0;
+            font-size: 1.1rem;
+        }
+
+        .horarios-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .horario-card {
+            background: var(--rojo-oscuro);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .horario-card h3 {
+            color: var(--dorado);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .horario-card p {
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+        }
+
+        .destacado {
+            color: var(--dorado);
+            font-weight: bold;
+        }
+
+        /* Planes (Precios) */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+            align-items: stretch;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            position: relative;
+            border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card.premium {
+            border: 2px solid var(--dorado);
+            transform: scale(1.05);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .precio {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--rojo-brillante);
+            margin-bottom: 5px;
+        }
+
+        .precio span {
+            font-size: 1rem;
+            color: var(--texto-gris);
+            font-weight: normal;
+        }
+
+        .nota-precio {
+            font-size: 0.85rem;
+            color: var(--texto-gris);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+
+        .pricing-card ul li {
+            margin-bottom: 15px;
+            color: var(--texto-gris);
+            font-size: 0.95rem;
+        }
+
+        .pricing-card ul li::before {
+            content: "✓";
+            color: var(--rojo-brillante);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .pricing-card ul li strong {
+            color: var(--texto-oscuro);
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .btn-secundario {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--rojo-oscuro);
+            padding: 12px 25px;
+            font-weight: 600;
+            border: 2px solid var(--rojo-oscuro);
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-secundario:hover {
+            background-color: var(--rojo-oscuro);
+            color: white;
+        }
+
+        .btn-premium {
+            background-color: var(--dorado);
+            border-color: var(--dorado);
+            color: var(--rojo-oscuro);
+        }
+
+        .btn-premium:hover {
+            background-color: #d4aa00;
+            border-color: #d4aa00;
+            color: var(--rojo-oscuro);
+        }
+
+        /* Info Familias */
+        .info-familias {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .info-familias h3 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .info-familias p {
+            color: #856404;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #aaa;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--dorado);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            .horarios-grid { grid-template-columns: 1fr; }
+            .pricing-card.premium { transform: scale(1); }
+            .section-title { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CABECERA -->
+    <header>
+        <div class="container">
+            <h1>Pau con Gauss</h1>
+            <p>Soy estudiante de la carrera de matemáticas y quiero prepararte para Selectividad desde el punto de vista matemático: Matemáticas II, Matemáticas Aplicadas y herramientas que te pueden servir en asignaturas de ciencias. Si quieres saber más, sigue leyendo.</p>
+            <a href="https://discord.gg/dm6cFFXWEg" class="btn-principal" target="_blank">Unirse al Discord</a>
+        </div>
+    </header>
+
+    <!-- CURSO DE MATEMÁTICAS INTENSIVO -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Curso de matemáticas intensivo</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Todo el temario</h3>
+                    <p>Diapositivas estructuradas con todo el contenido necesario para la PAU.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Vida cotidiana</h3>
+                    <p>Conexiones con la realidad y uso práctico para entender el porqué de las cosas.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Simulaciones</h3>
+                    <p>Contenido gráfico y simulaciones para visualizar conceptos abstractos.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Mucha práctica</h3>
+                    <p>Muchos, muchos, muchos ejercicios para llegar al examen con soltura.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Consejos clave</h3>
+                    <p>Errores típicos y estrategias para no perder puntos en la Selectividad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ¿CÓMO FUNCIONA? -->
+    <section class="bg-blanco">
+        <div class="container">
+            <h2 class="section-title">¿Cómo funcionan las clases?</h2>
+            <ul class="metodologia-lista">
+                <li><strong>Clases virtuales interactivas:</strong> Uso de diapositivas, simulaciones y ejemplos visuales.</li>
+                <li><strong>Tiempo para dudas:</strong> Espacio reservado en cada clase para resolver lo que te bloquea.</li>
+                <li><strong>Corrección de ejercicios:</strong> Revisamos y resolvemos los ejercicios propuestos anteriormente.</li>
+                <li><strong>Simulacros PAU:</strong> Ciertos días los dedicamos a hacer simulacros reales para perder el miedo al examen.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- HORARIOS -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Horarios</h2>
+            <div class="horarios-grid">
+                <div class="horario-card">
+                    <h3>Clases en Directo</h3>
+                    <p class="destacado">Sábados y Domingos</p>
+                    <p>Duración: 1h 30min al día (3h por fin de semana)</p>
+                    <p style="margin-top: 15px;">El turno (mañana o tarde) se asignará según mi disponibilidad y se comunicará con antelación:</p>
+                    <p style="margin-top: 10px;"><strong>Turno de Mañana:</strong><br>10:00 - 11:30 ó 10:30 - 12:00</p>
+                    <p><strong>Turno de Tarde:</strong><br>18:00 - 19:30 ó 18:30 - 20:00</p>
+                </div>
+                <div class="horario-card">
+                    <h3>Tutoría y Dudas</h3>
+                    <p class="destacado">Entre semana</p>
+                    <p>Respondo a todas tus dudas en el servidor de Discord. Si es necesario, lo haré fuera de la franja preferente.</p>
+                    <p style="margin-top: 15px; font-size: 1.3rem; font-weight: bold; color: #fff;">Franja preferente: 15:00 - 16:00</p>
+                    <p>(Los fines de semana, según disponibilidad).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PLANES -->
+    <section class="bg-blanco">
+        <div class="container">
+            <h2 class="section-title">Planes y Suscripciones</h2>
+            <div class="pricing-grid">
+                
+                <!-- Plan Gratuito -->
+                <div class="pricing-card">
+                    <h3>Acceso a la comunidad</h3>
+                    <div class="precio">0 €</div>
+                    <div class="nota-precio">Para siempre</div>
+                    <ul>
+                        <li><strong>Acceso al servidor</strong> Únete al Discord para ver cómo funciona la comunidad.</li>
+                        <li><strong>Retos semanales</strong> Ejercicios tipo Selectividad para practicar por tu cuenta.</li>
+                        <li><strong>Recursos gratuitos</strong> Descarga materiales de muestra para ver cómo funciona parte del curso.</li>
+                    </ul>
+                    <a href="https://discord.gg/dm6cFFXWEg" class="btn-secundario" target="_blank">Entrar gratis</a>
+                </div>
+
+                <!-- Plan Estudiante -->
+                <div class="pricing-card">
+                    <h3>Estudiante</h3>
+                    <div class="precio">20 €<span>/semana</span></div>
+                    <div class="nota-precio">Pago semanal. Sin permanencia.</div>
+                    <ul>
+                        <li><strong>Clases en vivo</strong> 3 horas en el fin de semana.</li>
+                        <li><strong>Material de práctica</strong> Hojas de ejercicios y simulaciones para trabajar.</li>
+                        <li><strong>Sistema de tutorías</strong> Pregunta tus dudas en el foro, sube fotos de tus ejercicios y recibe respuesta detallada.</li>
+                        <li><strong>Comunidad de estudio</strong> Comparte apuntes, vídeos y resuelve dudas con otros compañeros.</li>
+                        <li><strong>Clases interactivas</strong> Participa hablando en directo y utiliza la pizarra digital compartida.</li>
+                        <li><strong>Personalización</strong> Adapta tu perfil y tu apodo dentro del servidor.</li>
+                    </ul>
+                    <a href="https://discord.gg/dm6cFFXWEg" class="btn-secundario" target="_blank">Suscribirse</a>
+                </div>
+
+                <!-- Plan Estudiante+ -->
+                <div class="pricing-card premium">
+                    <h3>Estudiante+</h3>
+                    <div class="precio">35 €<span>/semana</span></div>
+                    <div class="nota-precio">Pago semanal. Sin permanencia.</div>
+                    <ul>
+                        <li><strong>Todo lo del plan Estudiante</strong> Acceso completo a clases, foro y comunidad.</li>
+                        <li><strong>Diapositivas exclusivas</strong> Acceso al material visual completo de teoría de las clases.</li>
+                        <li><strong>Preparación intensiva PAU</strong> Simulacros corregidos paso a paso, resúmenes y formularios exclusivos.</li>
+                        <li><strong>Atención prioritaria en clase</strong> Tienes preferencia para intervenir y preguntar durante las clases en vivo.</li>
+                        <li><strong>Participación sin límites</strong> Escribe en el chat cuando quieras, sin restricciones de tiempo entre mensajes.</li>
+                        <li><strong>Poder de decisión</strong> Vota en encuestas para elegir qué temas repasar en las clases.</li>
+                        <li><strong>Tutorías avanzadas</strong> Acceso a una sala privada de estudio para resolver dudas de mayor dificultad.</li>
+                    </ul>
+                    <a href="https://discord.gg/dm6cFFXWEg" class="btn-secundario btn-premium" target="_blank">Hacerse Premium</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INFO PARA FAMILIAS -->
+    <section>
+        <div class="container">
+            <div class="info-familias">
+                <h3>Información para familias</h3>
+                <p>Este cursillo está diseñado para estudiantes de 2º de Bachillerato. Las interacciones ocurren en un servidor privado de Discord moderado por el profesor. Se fomenta un ambiente seguro y respetuoso. No se solicitan datos personales sensibles en los canales públicos. Para cualquier duda sobre la seguridad del entorno o los pagos, puedes contactar directamente por correo electrónico a <strong><a href="mailto:juanmadm08@gmail.com" style="color: #856404; text-decoration: underline;">juanmadm08@gmail.com</a></strong>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Pau con Gauss. Todos los derechos reservados.</p>
+            <p style="margin-top: 10px;">Hecho para preparar la Selectividad de Matemáticas.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
